@@ -1,0 +1,88 @@
+<!--index.wxml-->
+<import src="../../utils/template.wxml" />
+<view class="container">
+   <view class='title'>
+      <view style='float: left;'>
+          <view class="nfc"><image  src="img/u270.png"> </image> </view>
+          <text class='fangwei'>防伪溯源</text>
+      </view>
+      <input type='text' class='seach'></input>
+       <view style='float: left;'>
+          <view class="ma"><image  src="img/u180.png"> </image> </view>
+          <text class='fangwei'>会员码</text>
+      </view>
+   </view>
+    <view class='home_banner'>
+         <swiper indicator-dots="{{indicatorDots}}"
+              autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" >
+              <block wx:for="{{image}}"  wx:key="{{index}}">
+                <swiper-item>
+                  <image src="{{item}}" class="slide-image" />
+                </swiper-item>
+              </block>
+         </swiper>
+
+    </view>
+    <view class='nav-list clear'>
+        <view class='list list-one' wx:for="{{nav}}">
+            <view class='ico nav_ico ico-one'><image src='{{item.url}}'></image></view>
+            <text class='text' >{{item.text}}</text>
+        </view>
+         
+    </view>
+    <view class='new clear' >
+         <image src='{{laba}}' class='news-img'></image>
+      <text style='color:#fff; font-size:24rpx;vertical-align:6rpx;margin-left:37rpx; float:left;'>通知：</text>
+      <view class='news-text'>111111</view>
+      <image src='{{close}}' class='close'></image>
+    </view>
+    <view class='goods '>
+      <view class='goods-title clear'>
+          <text class='goods-title-text'>商品</text>
+          <view class='more-all'>
+              <text class='more'>更多</text>
+              <image src='{{more}}' style='float:right; ' class='more-img'></image>
+          </view>
+      </view>
+      <view class='goods-content'>
+            <view class="weui-grids">
+        
+        <view class="weui-grid" wx:for="{{routers}}" wx:key="name">
+                <view class='weui-grid__bg'>
+                    <view class="weui-grid__icon">
+                        <image src=" {{item.icon}}" mode="scaleToFill" />
+                    </view>
+                    <text class="weui-grid_name">{{item.name}}</text>
+                     <text class="weui-grid_kuchun">库存{{item.code}}片</text>
+                     <view class='selling_point'  >
+                     <text class="sell-list" wx:for="{{item.selling}}">{{item}}</text>
+                     </view>
+                     <view class='price'>
+                          <view class='price_img'><image src='{{item.price_img}}'></image></view>
+                           <text class="price_text">{{item.name}}</text>
+                           <text class="price_line">{{item.name}}</text>
+                     </view>
+
+                </view>
+        </view>
+    </view>
+      </view>
+  
+</view>
+ <view class='share'>
+      <view class='share-title clear'>
+          <text class='goods-title-text'>推荐</text>
+          <view class='more-all'>
+              <text class='more'>更多</text>
+              <image src='{{more}}' style='float:right; ' class='more-img'></image>
+          </view>
+      </view>
+      <view class='shares-content'>
+      <view class='listview' wx:for="{{share}}" wx:for-item="item"  bindtap="bindViewTap" wx:key="*this">
+             <template  is="{{item.type == '29' ? 'joy-text' : (item.type == '10' ? 'joy-pic' : (item.type == '41' ? 'joy-video' : 'joy-pic'))}}" data="{{item}}"     bindtap></template>
+    </view> 
+      </view>
+  
+</view>
+
+</view>

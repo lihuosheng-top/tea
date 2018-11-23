@@ -1,0 +1,21 @@
+<import src="../../utils/template.wxml" />
+<view class='content'>
+ <view class='nav-list clear'>
+        <view class='list list-one' wx:for="{{ico}}">
+        <navigator url="../meeting/meeting?title={{item.id}}">  
+            <view class='ico'>
+               <image src='{{url}}{{item.icon_image}}'></image>
+            </view>
+            <text class='text'>{{item.name}}</text>
+            </navigator>
+        </view>
+         
+    </view>
+   <view class='share'>
+     <view class='shares-content'>
+           <view class='listview' wx:for="{{share}}" wx:for-item="item"  bindtap="bindViewTap" wx:key="*this">
+             <template  is="{{item.type == '29' ? 'joy-text' : (item.type == '10' ? 'joy-pic' : (item.type == '41' ? 'joy-video' : 'joy-pic'))}}" data="{{item}}"     bindtap></template>
+    </view> 
+      </view>
+</view>
+</view>
